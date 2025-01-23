@@ -89,3 +89,11 @@ function borrarAmigos() {
         //Mostrar el nombre usando document.getElementById('resultado').textContent
         //document.getElementById('resultado').textContent = amigos[indice];
     }
+
+    // Agregar un eventListener para detectar cuando el usuario presiona ENTER
+document.getElementById('amigo').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {  // Verificar si la tecla presionada es ENTER
+        event.preventDefault();  // Evitar que se haga un submit si el campo está dentro de un formulario
+        agregarAmigo();  // Llamar la función para agregar el amigo
+    }
+});
