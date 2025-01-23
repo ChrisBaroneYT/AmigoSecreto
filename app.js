@@ -10,7 +10,6 @@ function mostrarMensaje(mensaje) {
         mensajeElement.textContent = "";
     }, 3000);
 }
-
 //funcion para borrar los amigos y volver a uniciar el sorteo
 function borrarAmigos() {
     //borrar los amigos y amigos sorteados
@@ -21,7 +20,6 @@ function borrarAmigos() {
     //limpiar el resultado en el HTML
     document.getElementById('resultado').textContent = "";
 }
-
 //funcion que agrega un amigo al array amigos
  function agregarAmigo() {
 //validar si el nombre que va a ingresar ya esta en el array y enviar una alerta
@@ -29,15 +27,11 @@ function borrarAmigos() {
         mostrarMensaje("El amigo ya fue agregado");
         return false;
     }   
-
-
     //validar si el nombre de amigo ingresado tiene espacios y enviar una alerta
     if (document.getElementById('amigo').value.includes(" ")) {
         mostrarMensaje("El nombre no puede contener espacios");
         return false;
     }
-
-    
         //validar si el nombre de amigo ingresado tiene numeros y enviar una alerta
     if (document.getElementById('amigo').value.match(/\d/)) {
         mostrarMensaje("El nombre no puede contener numeros");
@@ -54,8 +48,6 @@ function borrarAmigos() {
     document.getElementById('amigo').value = "";  
     mostrarAmigos();
  }
-
- 
  //funcion que recorre el array y agrega cada nombre a un elemnto <li> dentro del HTML
     function mostrarAmigos() {
         //Utilizar document.getElementById('id') para seleccionar la lista donde se van a agregar los amigos
@@ -71,7 +63,6 @@ function borrarAmigos() {
             lista.appendChild(elemento);
         }  
     }
-    
 //Funcion que selecione de manera aleatoria uno de los amigos del array usando math.random y math.floor para un indice aleatorio
     function sortearAmigo() {
         //validar si el array esta vacio y enviar una alerta
