@@ -4,11 +4,13 @@ let amigosSorteados = [];
 
 //funcion que agrega un amigo al array amigos
  function agregarAmigo() {
+
     //validar si el nombre de amigo ingresado tiene espacios y enviar una alerta
     if (document.getElementById('amigo').value.includes(" ")) {
         alert("El nombre no puede contener espacios");
         return false;
     }
+    
     
         //validar si el nombre de amigo ingresado tiene numeros y enviar una alerta
     if (document.getElementById('amigo').value.match(/\d/)) {
