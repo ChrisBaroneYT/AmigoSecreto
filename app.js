@@ -4,6 +4,12 @@ let amigosSorteados = [];
 
 //funcion que agrega un amigo al array amigos
  function agregarAmigo() {
+    //validar si el nombre de amigo ingresado tiene espacios y enviar una alerta
+    if (document.getElementById('amigo').value.includes(" ")) {
+        alert("El nombre no puede contener espacios");
+        return false;
+    }
+    
         //validar si el nombre de amigo ingresado tiene numeros y enviar una alerta
     if (document.getElementById('amigo').value.match(/\d/)) {
         alert("El nombre no puede contener numeros");
@@ -14,6 +20,7 @@ let amigosSorteados = [];
         alert("El campo no puede estar vacio");
         return false;
     }
+
     //añadir el nombre del amigo al array
     amigos.push(document.getElementById('amigo').value);
     //despues de añadir el nombre del amigo al array, limpiar el campo input
@@ -22,6 +29,7 @@ let amigosSorteados = [];
     mostrarAmigos();
  }
 
+ 
  //funcion que recorre el array y agrega cada nombre a un elemnto <li> dentro del HTML
     function mostrarAmigos() {
         //Utilizar document.getElementById('id') para seleccionar la lista donde se van a agregar los amigos
