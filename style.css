@@ -179,14 +179,12 @@ button {
 }
 
 button:hover {
-    background-color: var(--color-button-hover);
+    background-color: #c156a6;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* Botón agregar */
 .button-add {
-    background-color: var(--color-tertiary);
-    color: var(--color-text);
     border-radius: 0 25px 25px 0;
     padding: 12px 20px;
     cursor: pointer;
@@ -195,7 +193,7 @@ button:hover {
 }
 
 .button-add:hover {
-    background-color: #BDC3C7;
+    background-color: #c156a6;
 }
 
 /* Botón "Sortear" */
@@ -216,9 +214,24 @@ button:hover {
 }
 
 .button-draw:hover {
-    background-color: var(--color-button-hover);
+    background-color: #c156a6;
 }
 
+.button-reset {
+
+    display: flex;
+    align-items: center;
+    background-color: red;
+    color: black;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+}
+.button-reset img {
+    margin-right: 15px;
+}
 /* Listas */
 ul {
     list-style-type: none;
