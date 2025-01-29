@@ -27,9 +27,14 @@ function borrarAmigos() {
         mostrarMensaje("El amigo ya fue agregado");
         return false;
     }   
-    //validar si el nombre de amigo ingresado tiene espacios y enviar una alerta
-    if (document.getElementById('amigo').value.includes(" ")) {
-        mostrarMensaje("El nombre no puede contener espacios");
+    //validar si el nombre de amigo ingresado tiene caracteres especiales y enviar una alerta
+    if (document.getElementById('amigo').value.match(/[!@#$%^&*(),.?":{}|<>]/)) {
+        mostrarMensaje("El nombre no puede contener caracteres especiales");
+        return false;
+    }
+//validar si el nombre ingresado tiene Espacios sin tener otro dato despues del espacio y enviar una alerta
+    if (document.getElementById('amigo').value.match(/\s$/)) {
+        mostrarMensaje("El nombre no puede terminar con un espacio");
         return false;
     }
         //validar si el nombre de amigo ingresado tiene numeros y enviar una alerta
