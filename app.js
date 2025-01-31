@@ -2,13 +2,22 @@
 let amigos = [];
 let amigosSorteados = [];
 
+//funcion para mostrar un mensaje con la fuente en rojo y el borde INPUT id="amigo" de HTML
 function mostrarMensaje(mensaje) {
-    let mensajeElement = document.getElementById('mensaje');
-    mensajeElement.textContent = mensaje;
-    //Limpiar mensaje despues de 3 segundos
-    setTimeout(() => {
-        mensajeElement.textContent = "";
-    }, 3000);
+    //cambiar el color de la fuente y el mensaje en el input
+    document.getElementById('amigo').style.color = 'red';
+    document.getElementById('amigo').value = mensaje;
+    //boder rojo en el input
+    document.getElementById('amigo').style.border = '3px solid red';
+    //limpiar al dar click en el input
+    document.getElementById('amigo').addEventListener('click', function() {
+        //quitar el borde
+        document.getElementById('amigo').style.border = 'none';
+        //limpiar el mensaje en el input
+        document.getElementById('amigo').value = "";
+        //cambiar el color de la fuente y el mensaje en el input
+        document.getElementById('amigo').style.color = 'black';
+    });
 }
 //funcion para borrar los amigos y volver a uniciar el sorteo
 function borrarAmigos() {
@@ -22,11 +31,15 @@ function borrarAmigos() {
 }
 //funcion que agrega un amigo al array amigos
  function agregarAmigo() {
-//validar si el nombre que va a ingresar ya esta en el array y enviar una alerta
+    //nopermitir que ingrse el mensaje de error que sale en el input
+    if (document.getElementById('amigo').value == "El amigo ya fue agregado" || document.getElementById('amigo').value == "El nombre no puede contener caracteres especiales" || document.getElementById('amigo').value == "El nombre no puede terminar con un espacio" || document.getElementById('amigo').value == "El nombre no puede contener numeros" || document.getElementById('amigo').value == "El campo no puede estar vacio") {
+        document.getElementById('amigo').value = "";
+    }
+//validar si el nombre que va a ingresar ya esta en el array y poner mensaje
     if (amigos.includes(document.getElementById('amigo').value)) {
         mostrarMensaje("El amigo ya fue agregado");
         return false;
-    }   
+    } 
     //validar si el nombre de amigo ingresado tiene caracteres especiales y enviar una alerta
     if (document.getElementById('amigo').value.match(/[!@#$%^&*(),.?":{}|<>]/)) {
         mostrarMensaje("El nombre no puede contener caracteres especiales");
