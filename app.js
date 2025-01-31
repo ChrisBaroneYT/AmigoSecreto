@@ -22,6 +22,7 @@ function mostrarMensaje(mensaje) {
         document.getElementById('amigo').style.color = 'black';
     }, 2000);
 
+    document.getElementById('amigoSecreto').value = mensaje;
 
     //limpiar al dar click en el input
     //document.getElementById('amigo').addEventListener('click', function() {
@@ -33,16 +34,59 @@ function mostrarMensaje(mensaje) {
       //  document.getElementById('amigo').style.color = 'black';
     //});
 }
-//funcion para borrar los amigos y volver a uniciar el sorteo
-function borrarAmigos() {
-    //borrar los amigos y amigos sorteados
+// Función para reiniciar el sorteo y habilitar el botón
+function reiniciarSorteo() {
     amigos = [];
     amigosSorteados = [];
-    //limpiar la lista de amigos en el HTML
-    document.getElementById('listaAmigos').innerHTML = "";
-    //limpiar el resultado en el HTML
-    document.getElementById('resultado').textContent = "";
+    let boton = document.querySelector(".button-draw");
+    let container = document.querySelector(".button-container");
+    let lista = document.getElementById('listaAmigos');  // Lista de amigos
+    let resultado = document.getElementById('resultado');  // Resultado del sorteo
+
+    // Restaurar estado del botón de sorteo
+    cambiarEstadoBoton(boton, 'activar');
+
+    // Restaurar color del contenedor
+    container.style.backgroundColor = "";
+
+    // Limpiar los resultados (el contenido de la lista de resultados)
+    resultado.innerHTML = "";  // Borrar todos los elementos <li> de la lista de resultados
+
+    // Limpiar la lista de amigos (el contenido de la lista de amigos)
+    lista.innerHTML = "";  // Borrar todos los elementos <li> de la lista de amigos
+
+    mostrarMensaje("Sorteo reiniciado.");
 }
+
+
+function cambiarEstadoBoton(boton, estado) {
+    if (estado === 'desactivar') {
+        boton.disabled = true;
+        boton.style.backgroundColor = "gray";
+        boton.style.cursor = "not-allowed";
+        boton.onclick = function () {
+            mostrarMensaje("Debes reiniciar el sorteo para continuar.");
+        };
+    } else if (estado === 'activar') {
+        boton.disabled = false;
+        boton.style.backgroundColor = "";  // Restaurar color original
+        boton.style.cursor = "pointer";
+        boton.onclick = sortearAmigo; // Restaurar función original
+    }
+}
+
+function desactivarBoton(boton) {
+    let container = document.querySelector(".button-container");
+    let input = document.getElementById("amigo");
+    let add = document.getElementById("button-add");
+
+    // Desactivar botones y cambiar estilos
+    cambiarEstadoBoton(add, 'desactivar');
+    cambiarEstadoBoton(boton, 'desactivar');
+    input.disabled = true;
+    container.style.backgroundColor = "gray";  // Cambiar color de fondo del contenedor
+}
+
 //funcion que agrega un amigo al array amigos
  function agregarAmigo() {
    
@@ -97,31 +141,49 @@ function borrarAmigos() {
         }  
     }
 //Funcion que selecione de manera aleatoria uno de los amigos del array usando math.random y math.floor para un indice aleatorio
-    function sortearAmigo() {
-        //validar si el array esta vacio y enviar una alerta
-        if (amigos.length == 0) {
-            mostrarMensaje("No hay amigos para seleccionar");
-            return false;
-        }
-        //validar que el array amigosSorteados sea igual al array amigos e indicar que ya se sortearon todos los amigos
-        if (amigosSorteados.length == amigos.length) {
-            mostrarMensaje("Ya se sortearon todos los amigos");
-            amigosSorteados = [];
-        }
-        //seleccionar un amigo aleatorio que no haya sido sorteado usando do while
-        let indice;
-        do {
-            indice = Math.floor(Math.random() * amigos.length);
-        } while (amigosSorteados.includes(indice)); //validar que el indice no este en el array amigosSorteados
-        //mostrar el nombre del amigo seleccionado en el HTML
-        document.getElementById('resultado').textContent = amigos[indice];
-        //Añadir el amigo seleccionado al array amigosSorteados
-        amigosSorteados.push(indice);
-        //Seleccionar un amigo de manera aleatoria
-        //let indice = Math.floor(Math.random() * amigos.length);
-        //Mostrar el nombre usando document.getElementById('resultado').textContent
-        //document.getElementById('resultado').textContent = amigos[indice];
+function sortearAmigo() {
+    let boton = document.querySelector(".button-draw");
+
+    // Validar si el array está vacío y enviar una alerta
+    if (amigos.length == 0) {
+        mostrarMensaje("No hay amigos para seleccionar.");
+        return false;
     }
+    
+    // Validar que mínimo haya dos amigos
+    if (amigos.length < 2) {
+        mostrarMensaje("Se necesitan 2 amigos para jugar.");
+        return false;
+    }
+
+    // Si todos los amigos han sido sorteados, desactivar el botón
+    if (amigosSorteados.length == amigos.length) {
+        mostrarMensaje("Ya se sortearon todos los amigos.");
+        amigosSorteados = [];
+        boton.disabled = true;  // Desactivar el botón
+        return;
+    }
+
+    // Seleccionar un amigo aleatorio que no haya sido sorteado
+    let indice;
+    do {
+        indice = Math.floor(Math.random() * amigos.length);
+    } while (amigosSorteados.includes(indice));
+
+    // Mostrar el nombre del amigo seleccionado en el HTML
+    document.getElementById('resultado').textContent = amigos[indice];
+
+    // Añadir el amigo seleccionado al array de sorteados
+    amigosSorteados.push(indice);
+
+    // Si después de este sorteo no quedan más amigos, desactivar el botón
+    if (amigosSorteados.length == amigos.length) {
+        desactivarBoton(boton);
+        mostrarMensaje("Ya se sortearon todos los amigos.");
+    }
+    
+}
+
 
     // Agregar un eventListener para detectar cuando el usuario presiona ENTER
 document.getElementById('amigo').addEventListener('keypress', function(event) {

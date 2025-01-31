@@ -44,8 +44,6 @@ body {
 @keyframes rainbow {
     0% { background-color: #FF0000; }
     14% { background-color: #FF7F00; }
-    28% { background-color: #FFFF00; }
-    42% { background-color: #00FF00; }
     57% { background-color: #0000FF; }
     71% { background-color: #4B0082; }
     85% { background-color: #8B00FF; }
@@ -103,8 +101,6 @@ body {
 @keyframes rainbow-text {
     0% { color: #FF0000; }
     14% { color: #FF7F00; }
-    28% { color: #FFFF00; }
-    42% { color: #00FF00; }
     57% { color: #0000FF; }
     71% { color: #4B0082; }
     85% { color: #8B00FF; }
@@ -397,8 +393,8 @@ body {
         bottom: 0.5rem;
     }
     .button-reset {
-        padding: 1rem 2.5rem;
-        font-size: 1.75rem;
+        padding: 0rem 2.5rem;
+        font-size: 1rem;
         bottom: 0rem;
         right: 0rem;
     }

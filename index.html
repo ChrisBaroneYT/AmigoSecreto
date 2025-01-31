@@ -20,12 +20,12 @@
             <h1 class="section-title">Digite el nombre de sus amigos</h1>
             <div class="input-wrapper">
                 <input type="text" id="amigo" class="input-name" placeholder="Escribe un nombre">
-                <button class="button-add" onclick="agregarAmigo();">Añadir</button>
+                <button id="button-add" class="button-add" onclick="agregarAmigo();">Añadir</button>
             </div>
             <div id="mensaje" style="color: red; font-weight: bold;"></div>
             <h2 class="list-title">Lista de Amigos Ingresados</h2>
             <ul id="listaAmigos" class="name-list" aria-labelledby="listaAmigos" role="list"></ul>
-            <ul id="resultado" class="result-list" aria-live="polite"></ul>
+            
 
             <div class="button-container">
                 <button class="button-draw" onclick="sortearAmigo()" aria-label="Sortear amigo secreto">
@@ -33,8 +33,11 @@
                     <span class="button-text">Sortear amigo</span>
                 </button>
             </div>
+            <h2 class="list-title">Su amigo secreto es:</h2>
+            <ul id="resultado" class="result-list" aria-live="polite"></ul>
+
             <div class="button-reset">
-                <button class="button-reset" onclick="borrarAmigos()" aria-label="Resetear lista de amigos">
+                <button class="button-reset" onclick="reiniciarSorteo()" aria-label="Resetear lista de amigos">
                     <img class="button-reset-img" src="assets/trash.png" alt="Ícono para resetear">
                     <span class="button-text">Resetear</span>
                 </button>
