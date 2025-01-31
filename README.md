@@ -1,55 +1,52 @@
-# Proyecto AMIGO SECRETO 👫  
+# Amigo Secreto 🎉👫
 *AluraLatam & Oracle*
 
-Este es un pequeño proyecto en JavaScript que permite gestionar una lista de amigos. Los usuarios pueden agregar nuevos amigos, ver la lista actualizada y seleccionar aleatoriamente a uno de ellos. 🎲
+## Descripción ✨
+**Amigo Secreto** es una aplicación web interactiva que permite a un grupo de personas organizar un sorteo de amigo secreto. Los participantes pueden agregar sus nombres, sortear los amigos secretos de manera aleatoria y ver los resultados al instante. Además, cuenta con un diseño moderno y responsivo que se adapta a distintos dispositivos y tamaños de pantalla.
 
----
+Este proyecto está hecho con **HTML**, **CSS** y **JavaScript**, y tiene como objetivo proporcionar una solución divertida y dinámica para hacer sorteos de amigos secretos.
 
-## Funcionalidades ✨
+## Funcionalidades 🚀
+- **Agregar amigos**: Los usuarios pueden agregar sus nombres a la lista de amigos utilizando campos de texto.
+- **Sorteo aleatorio**: Realiza el sorteo de amigo secreto con solo hacer clic en el botón de **Sortear**. Los participantes serán asignados aleatoriamente a otro.
+- **Resetear el sorteo**: Puedes reiniciar la lista y empezar de nuevo en cualquier momento usando el botón **Reset**.
+- **Interactividad**: Botones que cambian de color al pasar el cursor por encima, animaciones suaves y efectos visuales para una experiencia de usuario atractiva.
+- **Estilos dinámicos**: La interfaz cuenta con un fondo animado que cambia de colores a lo largo del tiempo y textos con efectos de colores arcoíris.
+- **Totalmente responsivo**: El diseño es completamente adaptativo a diferentes tamaños de pantalla (móviles, tabletas y escritorios).
 
-- **Agregar amigos a la lista ✍️**:  
-  Puedes agregar un nuevo amigo introduciendo su nombre en un campo de texto y presionando un botón. Si el campo está vacío, se mostrará una alerta ⚠️.
+## Tecnologías utilizadas 🛠️
+- **HTML5**: Estructura semántica y organización del contenido.
+- **CSS3**: Estilos modernos, animaciones, y diseño responsivo.
+  - **Flexbox y Grid**: Para la disposición flexible y adaptativa de los elementos en la página.
+  - **Animaciones CSS**: Efectos de fondo animado y texto arcoíris.
+- **JavaScript**: Lógica para gestionar la lista de amigos y el sorteo aleatorio.
+- **Font Awesome**: Iconos utilizados para los botones.
 
-- **Mostrar amigos 📝**:  
-  Cada vez que se agrega un nuevo amigo, la lista se actualiza automáticamente para reflejar los cambios.
+## Instalación 🔧
+### 1. Clona el repositorio:
+```bash
+git clone https://github.com/ChrisBaroneYT/AmigoSecreto.git
+```
 
-- **Sortear un amigo aleatoriamente 🎉**:  
-  El sistema seleccionará aleatoriamente un amigo de la lista y lo marcará como "ya sorteado". Los amigos no se repiten al ser sorteados. Si todos los amigos han sido sorteados, la lista se restablecerá para poder empezar de nuevo.
+### 2. Abre el archivo `index.html`:
+Después de clonar el repositorio, abre el archivo `index.html` en tu navegador web favorito para ver la aplicación en funcionamiento.
 
----
+## Uso 📝
+1. **Agregar amigos**: Ingresa los nombres de los amigos en los campos correspondientes y haz clic en **Agregar**.
+2. **Sortear**: Haz clic en el botón **Sortear** para asignar aleatoriamente un amigo secreto a cada persona en la lista.
+3. **Ver resultados**: Los resultados del sorteo se muestran en pantalla.
+4. **Resetear**: Si deseas comenzar de nuevo, haz clic en el botón **Reset** para limpiar la lista y el sorteo.
 
-## Requisitos 📋
+## Capturas de pantalla 📸
+![Texto alternativo](assets/SS.png)
 
-Este proyecto usa únicamente **JavaScript**, **HTML** y **CSS**.  
-No requiere ninguna librería adicional ni entorno de desarrollo. Puedes probarlo directamente en tu navegador.
-
----
-
-## Instrucciones 📍
-
-1. **Agregar amigos ✨**:
-   - Escribe el nombre de un amigo en el campo de texto.
-   - Haz clic en el botón "Agregar amigo" para añadirlo a la lista.
-   - El nombre se añadirá a la lista y el campo de texto se limpiará automáticamente.
-
-2. **Sortear un amigo 🎲**:
-   - Haz clic en el botón "Sortear amigo" para seleccionar aleatoriamente un amigo de la lista.
-   - El nombre del amigo seleccionado se mostrará en la sección de resultados.
-   - Si todos los amigos han sido sorteados, el sistema reiniciará el sorteo.
-
----
-
-## Tecnologías Usadas 💻
-
-- **[HTML5](https://developer.mozilla.org/es/docs/Web/HTML)**: Estructura básica de la página.
-- **[CSS3](https://developer.mozilla.org/es/docs/Web/CSS)**: Estilos para una interfaz sencilla.
-- **[JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript)**: Lógica para gestionar la lista de amigos y realizar el sorteo aleatorio.
+## Contribuciones 🤝
+Las contribuciones son siempre bienvenidas. Si encuentras algún error o tienes ideas para mejorar el proyecto, puedes hacer lo siguiente:
+- **Crear un issue** para reportar un error o sugerir una mejora.
+- **Hacer un pull request** con tus cambios.
 
 ## Conéctate conmigo 🌐
-
-¡Me encantaría conectar contigo! Puedes encontrarme en mis redes sociales:
-
-- **[LinkedIn](https://www.linkedin.com/in/christhiand/)**: Para conectarnos profesionalmente.
-- **[YouTube](https://www.youtube.com/@ChrisBaroneYT)**
-- **[Facebook](https://www.facebook.com/ChrisBaroneYT/)**
-- **[Instagram](https://www.instagram.com/chrisbaroneyt/)**
+**Desarrollador**: Chris Barone
+**GitHub**: **[ChrisBaroneYT](https://github.com/ChrisBaroneYT)**
+**Instagram**: **[Instagram](https://www.instagram.com/chrisbaroneyt/)**
+**Correo**: **[LinkedIn](https://www.linkedin.com/in/christhiand/)**
