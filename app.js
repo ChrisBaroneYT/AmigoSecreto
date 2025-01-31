@@ -9,15 +9,29 @@ function mostrarMensaje(mensaje) {
     document.getElementById('amigo').value = mensaje;
     //boder rojo en el input
     document.getElementById('amigo').style.border = '3px solid red';
-    //limpiar al dar click en el input
-    document.getElementById('amigo').addEventListener('click', function() {
+    //cuando este el error en el input no permitir que se ingrese otro nombre
+    document.getElementById('amigo').disabled = true;
+    //habilitar el input despues de 2 segundos
+    setTimeout(function() {
+        document.getElementById('amigo').disabled = false;
         //quitar el borde
         document.getElementById('amigo').style.border = 'none';
         //limpiar el mensaje en el input
         document.getElementById('amigo').value = "";
         //cambiar el color de la fuente y el mensaje en el input
         document.getElementById('amigo').style.color = 'black';
-    });
+    }, 2000);
+
+
+    //limpiar al dar click en el input
+    //document.getElementById('amigo').addEventListener('click', function() {
+        //quitar el borde
+    //    document.getElementById('amigo').style.border = 'none';
+        //limpiar el mensaje en el input
+     //   document.getElementById('amigo').value = "";
+        //cambiar el color de la fuente y el mensaje en el input
+      //  document.getElementById('amigo').style.color = 'black';
+    //});
 }
 //funcion para borrar los amigos y volver a uniciar el sorteo
 function borrarAmigos() {
@@ -31,37 +45,38 @@ function borrarAmigos() {
 }
 //funcion que agrega un amigo al array amigos
  function agregarAmigo() {
-    //nopermitir que ingrse el mensaje de error que sale en el input
-    if (document.getElementById('amigo').value == "El amigo ya fue agregado" || document.getElementById('amigo').value == "El nombre no puede contener caracteres especiales" || document.getElementById('amigo').value == "El nombre no puede terminar con un espacio" || document.getElementById('amigo').value == "El nombre no puede contener numeros" || document.getElementById('amigo').value == "El campo no puede estar vacio") {
-        document.getElementById('amigo').value = "";
-    }
-//validar si el nombre que va a ingresar ya esta en el array y poner mensaje
-    if (amigos.includes(document.getElementById('amigo').value)) {
-        mostrarMensaje("El amigo ya fue agregado");
+   
+    //validar si el nombre ingresado esta en el array y enviar una alerta
+    if (amigos.includes(amigos.find(amigo => amigo === document.getElementById('amigo').value.trim().toUpperCase()))) {
+        mostrarMensaje("El amigo ya fue agregado.");
         return false;
-    } 
+    }
+    
     //validar si el nombre de amigo ingresado tiene caracteres especiales y enviar una alerta
     if (document.getElementById('amigo').value.match(/[!@#$%^&*(),.?":{}|<>]/)) {
-        mostrarMensaje("El nombre no puede contener caracteres especiales");
+        mostrarMensaje("No agregar caracteres especiales.");
         return false;
     }
-//validar si el nombre ingresado tiene Espacios sin tener otro dato despues del espacio y enviar una alerta
+
+    //validar si el nombre ingresado tiene Espacios sin tener otro dato despues del espacio y enviar una alerta
     if (document.getElementById('amigo').value.match(/\s$/)) {
-        mostrarMensaje("El nombre no puede terminar con un espacio");
+        mostrarMensaje("El nombre no puede terminar con un espacio.");
         return false;
     }
-        //validar si el nombre de amigo ingresado tiene numeros y enviar una alerta
+
+    //validar si el nombre de amigo ingresado tiene numeros y enviar una alerta
     if (document.getElementById('amigo').value.match(/\d/)) {
-        mostrarMensaje("El nombre no puede contener numeros");
+        mostrarMensaje("El nombre no puede contener numeros.");
         return false;
     }
     //validar si el campo input esta vacio y enviar una alerta
     if (document.getElementById('amigo').value == "") {
-        mostrarMensaje("El campo no puede estar vacio");
+        mostrarMensaje("El campo no puede estar vacio.");
         return false;
     }
-    //añadir el nombre del amigo al array
-    amigos.push(document.getElementById('amigo').value);
+
+    //convertir el nombre del amigo a mayusculas y añadirlo al array amigos
+    amigos.push(document.getElementById('amigo').value.trim().toUpperCase());
     //despues de añadir el nombre del amigo al array, limpiar el campo input
     document.getElementById('amigo').value = "";  
     mostrarAmigos();
