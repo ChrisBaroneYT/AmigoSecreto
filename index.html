@@ -24,7 +24,7 @@
                 <button id="button-add" class="button-add" onclick="agregarAmigo();">Añadir</button>
             </div>
             <div id="mensaje" style="color: red; font-weight: bold;"></div>
-            <h2 class="list-title">Lista de Amigos Ingresados</h2>
+            <h2 id="tituloListaAmigos" class="list-title ocultar">Lista de Amigos Ingresados</h2>
             <ul id="listaAmigos" class="name-list" aria-labelledby="listaAmigos" role="list"></ul>
             
 
@@ -34,7 +34,8 @@
                     <span class="button-text">Sortear amigo</span>
                 </button>
             </div>
-            <h2 class="list-title">Su amigo secreto es:</h2>
+            <h2 id="tituloResultado" class="list-title ocultar">Su amigo secreto es:</h2>
+            <span id="resultadoAmigo" style="color: green; text-decoration: underline; font-weight: bold;"></span>
             <ul id="resultado" class="result-list" aria-live="polite"></ul>
 
             <div class="button-reset">
